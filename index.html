@@ -1,1 +1,695 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polarex | Kurumsal İş Elbiseleri ve İş Güvenliği Ekipmanları</title>
+    <style>
+        :root {
+            --primary: #1e3a8a;
+            --primary-dark: #1e293b;
+            --accent: #ef4444;
+            --accent-hover: #dc2626;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --card-border: #e2e8f0;
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            color: var(--text-main);
+            background-color: #ffffff;
+            line-height: 1.7;
+        }
+
+        /* Üst Bilgi Çubuğu */
+        .announcement-bar {
+            background-color: var(--primary-dark);
+            color: #f8fafc;
+            font-size: 13px;
+            padding: 10px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            border-bottom: 1px solid #334155;
+        }
+
+        .announcement-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .announcement-info span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .announcement-social a {
+            color: #f8fafc;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .announcement-social a:hover {
+            color: var(--accent);
+        }
+
+        /* Navigasyon / Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #f1f5f9;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.02);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-brand {
+            font-size: 28px;
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -0.5px;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+
+        .logo-brand span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            background-color: var(--primary);
+            color: #ffffff !important;
+            padding: 10px 20px;
+            border-radius: 6px;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Hero Tanıtım Alanı */
+        .hero-section {
+            padding: 100px 24px;
+            background: radial-gradient(circle at 80% 20%, #eff6ff 0%, #ffffff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-wrapper {
+            max-width: 1280px;
+            width: 100%;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.15;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 36px;
+            max-width: 580px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn-modern {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: #ffffff;
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.25);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background-color: transparent;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Öne Çıkan Değerler */
+        .pillars-section {
+            padding: 60px 24px;
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .pillars-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .pillar-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .pillar-card h3 {
+            font-size: 20px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .pillar-card p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* Ürün Kataloğu */
+        .catalog-section {
+            padding: 100px 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-header h2 {
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .catalog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+            gap: 32px;
+        }
+
+        .catalog-item {
+            background-color: #ffffff;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .catalog-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border-color: #cbd5e1;
+        }
+
+        .media-container {
+            background-color: #f1f5f9;
+            height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .item-tag {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background-color: var(--primary-dark);
+            color: #ffffff;
+            padding: 6px 14px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .item-details {
+            padding: 30px;
+        }
+
+        .item-details h3 {
+            font-size: 22px;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .item-details p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* İletişim & Detay Matrisi */
+        .info-section {
+            background-color: var(--bg-light);
+            padding: 100px 24px;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .info-wrapper {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 64px;
+        }
+
+        .info-block h3 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            margin-bottom: 24px;
+            letter-spacing: -0.5px;
+        }
+
+        .info-card {
+            background-color: #ffffff;
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .meta-row {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .meta-row label {
+            font-size: 12px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.5px;
+        }
+
+        .meta-row p, .meta-row a {
+            font-size: 18px;
+            color: var(--primary-dark);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .meta-row a:hover {
+            color: var(--accent);
+        }
+
+        .instagram-badge-link {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #ffffff !important;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            text-align: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.3);
+            transition: opacity 0.2s ease;
+        }
+
+        .instagram-badge-link:hover {
+            opacity: 0.95;
+        }
+
+        .pitch-card {
+            background-color: var(--primary);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .pitch-card h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .pitch-card p {
+            opacity: 0.9;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+
+        /* Alt Alan / Footer */
+        footer {
+            background-color: var(--primary-dark);
+            color: #94a3b8;
+            padding: 40px 24px;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid #1e293b;
+        }
+
+        footer strong {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Üst İletişim Şeridi -->
+    <div class="announcement-bar">
+        <div class="announcement-info">
+            <span>📍 <strong>Dükkan Adres:</strong> Yeni Mahalle Mahallesi 5. Engin Sokak No: 30 / C</span>
+            <span>📞 <strong>Müşteri Hattı:</strong> 0505 534 34 22</span>
+            <span>✉️ <strong>E-posta:</strong> polarex3@gmail.com</span>
+        </div>
+        <div class="announcement-social">
+            <a href="https://www.instagram.com/polarex.tr?igsh=MWVodTQwcnIxemM3cw%3D%3D&utm_source=qr" target="_blank">📸 @polarex.tr Takip Et</a>
+        </div>
+    </div>
+
+    <!-- Menü Alanı -->
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo-brand">Polarex<span>.tr</span></a>
+            <ul class="nav-links">
+                <li><a href="#">Ana Sayfa</a></li>
+                <li><a href="#katalog">Ürün Grupları</a></li>
+                <li><a href="#iletisim">İletişim & Konum</a></li>
+                <li><a href="tel:05055343422" class="nav-cta">Teklif Al</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Giriş / Karşılama Paneli -->
+    <section class="hero-section">
+        <div class="hero-wrapper">
+            <div class="hero-text">
+                <h1>Kurumsal <span>İş Elbiseleri</span> Tasarım ve Üretim Merkezi</h1>
+                <p>Polarex dünyasına hoş geldiniz. Firma sahibi <strong>Melih</strong> yönetiminde, markanıza değer katan yüksek dayanıklı logolu iş kıyafetleri, özel nakışlı polar montlar ve sertifikalı iş güvenliği ekipmanlarını tam zamanında üretiyoruz.</p>
+                <div class="hero-actions">
+                    <a href="#katalog" class="btn-modern btn-accent">Ürünlerimizi İnceleyin</a>
+                    <a href="#iletisim" class="btn-modern btn-outline">İletişime Geçin</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <svg width="340" height="340" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="100" cy="100" r="90" fill="#eff6ff"/>
+                    <path d="M60,60 L140,60 L155,160 L45,160 Z" fill="#1e3a8a"/>
+                    <path d="M80,60 L100,85 L120,60 Z" fill="#ef4444"/>
+                    <circle cx="100" cy="100" r="30" fill="#ffffff" opacity="0.1"/>
+                    <text x="100" y="125" font-family="sans-serif" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle" letter-spacing="1">POLAREX</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Temel Değerler -->
+    <section class="pillars-section">
+        <div class="pillars-wrapper">
+            <div class="pillar-card">
+                <h3>Kusursuz Amblem & Nakış</h3>
+                <p>Şirket logonuzu ve firma isminizi profesyonel dikiş teknolojisi ile hatasız bir şekilde polarlarınıza ve iş kıyafetlerinize nakşediyoruz.</p>
+            </div>
+            <div class="pillar-card">
+                <h3>Birinci Sınıf Dayanıklılık</h3>
+                <p>En zorlu çalışma sahası ve endüstriyel koşullara uygun, deforme olmayan ve renk atmayan özel sertifikalı kumaşlar.</p>
+            </div>
+            <div class="pillar-card">
+                <h3>Hızlı ve Güvenilir Teslimat</h3>
+                <p>Toplu siparişlerinizi belirlenen termin süreleri içerisinde söz verdiğimiz günde eksiksiz olarak dükkanımızdan teslim alabilirsiniz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ürün Grupları -->
+    <section id="katalog" class="catalog-section">
+        <div class="section-header">
+            <h2>Profesyonel Ürün Gruplarımız</h2>
+            <p>Sahanın ve personelinizin ihtiyaç duyduğu tüm kurumsal giyim çözümleri tek bir çatı altında.</p>
+        </div>
+
+        <div class="catalog-grid">
+            
+            <!-- Polar Ceket -->
+            <div class="catalog-item">
+                <div class="media-container">
+                    <div class="item-tag">Özel Üretim</div>
+                    <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#1e293b"/>
+                        <path d="M120,80 L280,80 L310,260 L90,260 Z" fill="#334155"/>
+                        <line x1="200" y1="110" x2="200" y2="260" stroke="#cbd5e1" stroke-width="3"/>
+                        <rect x="215" y="125" width="55" height="18" rx="3" fill="#1e3a8a"/>
+                        <text x="242" y="137" font-family="sans-serif" font-size="8" fill="#ffffff" font-weight="bold" text-anchor="middle">POLAREX</text>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <h3>Premium Polar Ceketler</h3>
+                    <p>Kalın, anti-pilling (tüylenme yapmayan) sıcak tutan polar kumaş yapısı. Sol göğüs veya sırt alanına firmanızın adı yüksek çözünürlüklü işlenir.</p>
+                </div>
+            </div>
+
+            <!-- Baskı Nakış -->
+            <div class="catalog-item">
+                <div class="media-container">
+                    <div class="item-tag">Kurumsal Markalama</div>
+                    <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#0f172a"/>
+                        <circle cx="200" cy="150" r="90" fill="none" stroke="#d97706" stroke-width="8"/>
+                        <text x="200" y="155" font-family="sans-serif" font-size="30" fill="#ffffff" font-weight="900" letter-spacing="3" text-anchor="middle">POLAREX</text>
+                        <text x="200" y="185" font-family="sans-serif" font-size="11" fill="#94a3b8" letter-spacing="2" text-anchor="middle">İŞ ELBİSELERİ</text>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <h3>Endüstriyel Baskı & Nakış</h3>
+                    <p>Firma isminizin polar, mont ve tişörtlerin üzerine hassas bilgisayarlı nakış makineleri ile dikiş hatasız aktarılması hizmeti.</p>
+                </div>
+            </div>
+
+            <!-- İş Ayakkabısı -->
+            <div class="catalog-item">
+                <div class="media-container">
+                    <div class="item-tag">İş Güvenliği (İSG)</div>
+                    <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#f8fafc"/>
+                        <path d="M100,210 L140,140 L220,135 L280,175 L320,200 L320,230 L100,230 Z" fill="#334155"/>
+                        <path d="M95,230 L325,230 L325,245 L290,245 L250,245 L130,245 L95,245 Z" fill="#0f172a"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <h3>Çelik Burunlu İş Ayakkabıları</h3>
+                    <p>S1, S2 ve S3 koruma sınıflarında; çelik ya da kompozit burun takviyeli, kaymaz tabanlı, antistatik, çivi batmalarına dirençli profesyonel ayakkabılar.</p>
+                </div>
+            </div>
+
+            <!-- Polo Yaka Tişört -->
+            <div class="catalog-item">
+                <div class="media-container">
+                    <div class="item-tag">Yazlık Seçenekler</div>
+                    <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#eff6ff"/>
+                        <path d="M130,90 L270,90 L295,260 L105,260 Z" fill="#1e3a8a"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <h3>Polo Yaka Tişörtler</h3>
+                    <p>%100 pamuklu likralı penye veya pike kumaş alternatifleri ile yaz aylarında personelinize maksimum rahatlık ve kurumsal uyum sunun.</p>
+                </div>
+            </div>
+
+            <!-- İş Pantolonu -->
+            <div class="catalog-item">
+                <div class="media-container">
+                    <div class="item-tag">Ağır Sanayi</div>
+                    <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#f1f5f9"/>
+                        <path d="M140,60 L260,60 L270,260 L210,260 L200,140 L190,260 L130,260 Z" fill="#2563eb"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <h3>Teknik İş Pantolonları</h3>
+                    <p>Çok cepli işlevsel tasarım, dizlik koruma cepleri takviyeli, yırtılmaz gabardin ve cordura harman kumaş iş pantolonları.</p>
+                </div>
+            </div>
+
+            <!-- Baret / Koruyucu -->
+            <div class="catalog-item">
+                <div class="media-container">
+                    <div class="item-tag">Kişisel Koruyucu</div>
+                    <svg width="100%" height="100%" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="400" height="300" fill="#1e3a8a"/>
+                        <path d="M120,170 C120,100 280,100 280,170 L295,175 L295,185 L105,185 Z" fill="#f59e0b"/>
+                    </svg>
+                </div>
+                <div class="item-details">
+                    <h3>Sertifikalı Koruyucu Baretler</h3>
+                    <p>Uluslararası CE standartlarına ve darbe mukavemet testlerine uygun, ayarlanabilir iç mekanizmalı endüstriyel iş güvenliği baretleri.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- İletişim Alanı -->
+    <section id="iletisim" class="info-section">
+        <div class="info-wrapper">
+            
+            <div class="info-block">
+                <h3>Kurumsal İletişim Detayları</h3>
+                <div class="info-card">
+                    
+                    <div class="meta-row">
+                        <label>Firma Yetkilisi</label>
+                        <p>Melih (Firma Sahibi)</p>
+                    </div>
+
+                    <div class="meta-row">
+                        <label>Telefon / Sipariş Hattı</label>
+                        <p><a href="tel:05055343422">0505 534 34 22</a></p>
+                    </div>
+
+                    <div class="meta-row">
+                        <label>E-posta Adresi</label>
+                        <p><a href="mailto:polarex3@gmail.com">polarex3@gmail.com</a></p>
+                    </div>
+
+                    <div class="meta-row">
+                        <label>Dükkan ve İmalat Adresi</label>
+                        <p>Yeni Mahalle Mahallesi 5. Engin Sokak No: 30 / C</p>
+                    </div>
+
+                    <div class="meta-row">
+                        <label>Resmi Sosyal Medya Hesabı</label>
+                        <br>
+                        <a href="https://www.instagram.com/polarex.tr?igsh=MWVodTQwcnIxemM3cw%3D%3D&utm_source=qr" target="_blank" class="instagram-badge-link">
+                            Instagram'da Takip Et @polarex.tr
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="info-block">
+                <h3>Teklif Süreci & Toplu Sipariş</h3>
+                <div class="pitch-card">
+                    <h4>Nasıl Sipariş Oluşturulur?</h4>
+                    <p>Kurumsal siparişleriniz ve kurumsal fiyatlandırma için adımları takip edebilirsiniz:</p>
+                    <p style="margin-bottom: 15px;">1. Şirket logonuzu veya dilediğiniz firma ismini yüksek çözünürlüklü olarak <strong>polarex3@gmail.com</strong> adresimize iletin.</p>
+                    <p style="margin-bottom: 15px;">2. İhtiyacınız olan polar ceket, tişört, pantolon adetlerini ve personelinizin iş ayakkabısı numaralarını bize bildirin.</p>
+                    <p style="margin-bottom: 25px;">3. Uzman ekibimiz logonuzun nakış şablonunu hazırlasın ve dükkanımızda üretimi başlatıp hızlıca size teslim edelim.</p>
+                    <a href="tel:05055343422" style="background-color: #ffffff; color: var(--primary); font-weight: bold;" class="btn-modern">Melih Bey ile Hemen Görüşün</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Alt Bilgi / Telif -->
+    <footer>
+        <p>&copy; 2026 <strong>Polarex İş Elbiseleri</strong> - Tüm Hakları Saklıdır. Kurumsal İş Kıyafetleri ve İSG Çözümleri.</p>
+    </footer>
+
+</body>
+</html>
